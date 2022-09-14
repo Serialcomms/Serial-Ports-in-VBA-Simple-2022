@@ -16,7 +16,8 @@
 | `device_ready`                    | Returns `True` if port started and Data Set Ready (DSR) input signal active              |
 | `stop_com_port`                   | Stops[^1] com port and returns its control back to Windows                               |
 
-##### Com Port number defined in declarations section at start of module `Private Const COM_PORT_NUMBER as Long = 1`
+##### Com Port number defined in declarations section at start of module   
+`Private Const COM_PORT_NUMBER as Long = 1`    
 
 [^1]: Function returns `True` if successful, otherwise `False`  
 
