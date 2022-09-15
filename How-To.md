@@ -107,7 +107,7 @@ There are two versions of the file available
 -  `Z = read_com_port`
 - Display variable Z and check if text received correctly
 -  `?Z`
-- Optional - explore other Public functions, e.g. 
+- Test other functions, e.g. 
 -  `?check_com_port`
 -  `?put_com_port("A")`
 -  `?get_com_port`
