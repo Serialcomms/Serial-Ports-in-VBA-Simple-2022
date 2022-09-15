@@ -53,7 +53,7 @@ Writes are synchronous and functions can block until outgoing data is processed 
     
 - Short strings will return quickly as data is buffered for transmission    
 - Maximum number of characters sent is limited by write timer value in milliseconds
-- Longer strings which take more than a few seconds to send may cause VBA 'Not Responding' errors
+- Character limit per send is approximately = ( Baud Rate / 10 * WRITE_CONSTANT )
 
 </p>
 
