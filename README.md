@@ -84,4 +84,4 @@ Writes are synchronous and functions can block until outgoing data is processed 
   
 </details>
 
-[Function List Here](Functions.md)
+[Function List Table](Functions.md)
