@@ -3,7 +3,7 @@
 ##### All functions support one pre-defined Com Port only
 
 | VBA Function                   |  Returns           | Description                                                                      |
-| -------------------------------|:-------------------|----------------------------------------------------------------------------------|
+| -------------------------------|--------------------|----------------------------------------------------------------------------------|
 | `start_com_port`               | `Boolean` [^1]     | Starts com port with existing settings                                           |
 | `start_com_port("baud=1200")`  | `Boolean` [^1]     | Starts com port with supplied settings[^4] in string                             |
 | `start_com_port(SCANNER)`      | `Boolean` [^1]     | Starts com port with settings[^4] defined in VBA constant or variable SCANNER    |
