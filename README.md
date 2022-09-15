@@ -6,6 +6,8 @@ Intended for use with serial devices which have a well-defined set of short comm
 
 No debug or extended transmit & receive functionality is provided. 
 
+No other files, licences, payments or registrations are required.  
+
 
 <details>
 
