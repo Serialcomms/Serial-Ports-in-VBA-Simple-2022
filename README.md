@@ -37,7 +37,7 @@ _Assume that all data has already been sent by the attached serial device and is
   
 - Data will be read in one synchronous API call.
   
-- Maximum characters read =  fixed read buffer length
+- Maximum characters per read call = READ_BUFFER_LENGTH
   
 - `check_com_port` function can be used again to check for any new or remaining characters. 
     
