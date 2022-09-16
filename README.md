@@ -31,13 +31,15 @@ No other files, licences, payments or registrations are required.
   
 _Assume that all data has already been sent by the attached serial device and is ready waiting to be read_
 
+- check_com_port can be used to confirm expected number of characters are waiting before committing read 
+
 - No pre or post read delays for any in-flight data reception to complete are provided.
   
 - Data will be read in one synchronous API call.
   
 - Maximum characters read =  fixed read buffer length
   
-- `check_com_port` function can be used to check for any new or remaining characters. 
+- `check_com_port` function can be used again to check for any new or remaining characters. 
     
 </p>
 
