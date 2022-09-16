@@ -1,7 +1,7 @@
 Attribute VB_Name = "SERIAL_PORT_VBA_SIMPLE"
 '
 ' https://github.com/Serialcomms/Serial-Ports-in-VBA-Simple-2022/
-' https://github.com/Serialcomms/Serial-Ports-in-VBA-Simple-2022/blob/main/SERIAL_PORT_SIMPLE_VBA7.bas
+' https://github.com/Serialcomms/Serial-Ports-in-VBA-Simple-2022/blob/main/SERIAL_PORT_SIMPLE_VBA6.bas
 '
 Option Explicit
 '
@@ -19,7 +19,7 @@ Private Const LONG_3  As Long = 3
 Private Const LONG_4  As Long = 4
 
 Private Const QUEUE_ERROR As Long = -1
-Private Const HANDLE_INVALID As LongPtr = -1
+Private Const HANDLE_INVALID As Long = -1
 Private Const READ_BUFFER_LENGTH As Long = 1024
 
 Private Type DEVICE_CONTROL_BLOCK
@@ -59,7 +59,7 @@ End Type
 
 Private Type COM_PORT_PROFILE
 
-             Handle     As LongPtr
+             Handle     As Long
              Errors     As Long
              Signal     As Long
              Started    As Boolean
@@ -70,25 +70,25 @@ End Type
 
 Private COM_PORT As COM_PORT_PROFILE
 
-Private Declare PtrSafe Function Query_Port_DCB Lib "Kernel32.dll" Alias "GetCommState" (ByVal Port_Handle As LongPtr, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
-Private Declare PtrSafe Function Apply_Port_DCB Lib "Kernel32.dll" Alias "SetCommState" (ByVal Port_Handle As LongPtr, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
-Private Declare PtrSafe Function Build_Port_DCB Lib "Kernel32.dll" Alias "BuildCommDCBA" (ByVal Port_Config As String, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
-Private Declare PtrSafe Function Set_Com_Timers Lib "Kernel32.dll" Alias "SetCommTimeouts" (ByVal Port_Handle As LongPtr, ByRef Timeouts As COM_PORT_TIMEOUTS) As Boolean
-Private Declare PtrSafe Function Get_Port_Modem Lib "Kernel32.dll" Alias "GetCommModemStatus" (ByVal Port_Handle As LongPtr, ByRef Modem_Status As Long) As Boolean
-Private Declare PtrSafe Function Com_Port_Close Lib "Kernel32.dll" Alias "CloseHandle" (ByVal Port_Handle As LongPtr) As Boolean
+Private Declare Function Query_Port_DCB Lib "Kernel32.dll" Alias "GetCommState" (ByVal Port_Handle As Long, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
+Private Declare Function Apply_Port_DCB Lib "Kernel32.dll" Alias "SetCommState" (ByVal Port_Handle As Long, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
+Private Declare Function Build_Port_DCB Lib "Kernel32.dll" Alias "BuildCommDCBA" (ByVal Port_Config As String, ByRef Port_DCB As DEVICE_CONTROL_BLOCK) As Boolean
+Private Declare Function Set_Com_Timers Lib "Kernel32.dll" Alias "SetCommTimeouts" (ByVal Port_Handle As Long, ByRef Timeouts As COM_PORT_TIMEOUTS) As Boolean
+Private Declare Function Get_Port_Modem Lib "Kernel32.dll" Alias "GetCommModemStatus" (ByVal Port_Handle As Long, ByRef Modem_Status As Long) As Boolean
+Private Declare Function Com_Port_Close Lib "Kernel32.dll" Alias "CloseHandle" (ByVal Port_Handle As Long) As Boolean
 
-Private Declare PtrSafe Function Com_Port_Clear Lib "Kernel32.dll" Alias "ClearCommError" _
-(ByVal Port_Handle As LongPtr, ByRef Port_Error_Mask As Long, ByRef Port_Status As COM_PORT_STATUS) As Boolean
+Private Declare Function Com_Port_Clear Lib "Kernel32.dll" Alias "ClearCommError" _
+(ByVal Port_Handle As Long, ByRef Port_Error_Mask As Long, ByRef Port_Status As COM_PORT_STATUS) As Boolean
 
-Private Declare PtrSafe Function Com_Port_Create Lib "Kernel32.dll" Alias "CreateFileA" _
+Private Declare Function Com_Port_Create Lib "Kernel32.dll" Alias "CreateFileA" _
 (ByVal Port_Name As String, ByVal PORT_ACCESS As Long, ByVal SHARE_MODE As Long, ByVal SECURITY_ATTRIBUTES_NULL As Any, _
- ByVal CREATE_DISPOSITION As Long, ByVal FLAGS_AND_ATTRIBUTES As Long, Optional TEMPLATE_FILE_HANDLE_NULL) As LongPtr
+ ByVal CREATE_DISPOSITION As Long, ByVal FLAGS_AND_ATTRIBUTES As Long, Optional TEMPLATE_FILE_HANDLE_NULL) As Long
 
-Private Declare PtrSafe Function Synchronous_Read Lib "Kernel32.dll" Alias "ReadFile" _
-(ByVal Port_Handle As LongPtr, ByVal Buffer_Data As String, ByVal Bytes_Requested As Long, ByRef Bytes_Processed As Long, Optional Overlapped_Null) As Boolean
+Private Declare Function Synchronous_Read Lib "Kernel32.dll" Alias "ReadFile" _
+(ByVal Port_Handle As Long, ByVal Buffer_Data As String, ByVal Bytes_Requested As Long, ByRef Bytes_Processed As Long, Optional Overlapped_Null) As Boolean
 
-Private Declare PtrSafe Function Synchronous_Write Lib "Kernel32.dll" Alias "WriteFile" _
-(ByVal Port_Handle As LongPtr, ByVal Buffer_Data As String, ByVal Bytes_Requested As Long, ByRef Bytes_Processed As Long, Optional Overlapped_Null) As Boolean
+Private Declare Function Synchronous_Write Lib "Kernel32.dll" Alias "WriteFile" _
+(ByVal Port_Handle As Long, ByVal Buffer_Data As String, ByVal Bytes_Requested As Long, ByRef Bytes_Processed As Long, Optional Overlapped_Null) As Boolean
 '
 
 Public Function START_COM_PORT(Optional Port_Setttings As String) As Boolean
