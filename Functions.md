@@ -13,6 +13,7 @@
 | `put_com_port("A")`            | `Boolean` [^1] | Send a single character string to com port                                            |
 | `send_com_port("QWERTY")`      | `Boolean` [^1] | Sends [^2] supplied character string to com port                                      |
 | `send_com_port(COMMANDS)`      | `Boolean` [^1] | Sends [^2] character string defined in VBA constant or variable COMMANDS to com port  |
+| `send_com_port($B$5)`          | `Boolean` [^1] | Sends [^2] contents of Worksheet Cell $B$5 to com port (Excel Only)                   |
 | `device_ready`                 | `Boolean`      | Returns `True` if port started and Data Set Ready (DSR) input signal active           |
 | `stop_com_port`                | `Boolean` [^1] | Stops com port and returns its control back to Windows                                |
 
