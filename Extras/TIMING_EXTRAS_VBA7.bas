@@ -82,17 +82,15 @@ GET_HOST_MILLISECONDS = Int(Temp_QPC)
 
 End Function
 
-Public Static Function GET_HOST_MICROSECONDS() As Currency
+Public Function GET_HOST_MICROSECONDS() As Currency
 
 ' Application.Volatile  ' - Excel Only
-
-Const QPF As Long = LONG_1000
 
 Dim Temp_QPC As Currency
 
 QPC Temp_QPC
 
-GET_HOST_MICROSECONDS = Int(Temp_QPC * QPF)
+GET_HOST_MICROSECONDS = Int(Temp_QPC * LONG_1000)
 
 End Function
 
