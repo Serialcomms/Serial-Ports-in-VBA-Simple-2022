@@ -8,7 +8,7 @@ No debug or extended transmit & receive functionality is provided.
 
 No other files, licences, payments or registrations are required.  
 
-Functions can be used directly in Excel cells where appropriate. 
+Functions can be used directly in Excel cells as Formulas where appropriate. 
 
 
 <details>
